@@ -1,110 +1,97 @@
-/* line 11, ../jkanban.scss */
 .kanban-container {
   position: relative;
   box-sizing: border-box;
   width: auto;
 }
-/* line 15, ../jkanban.scss */
+
 .kanban-container * {
   box-sizing: border-box;
 }
-/* line 18, ../jkanban.scss */
+
 .kanban-container:after {
   clear: both;
   display: block;
   content: "";
 }
 
-/* line 25, ../jkanban.scss */
 .kanban-board {
   position: relative;
   float: left;
+  background: #e2e4e6;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* line 32, ../jkanban.scss */
 .kanban-board.disabled-board {
   opacity: 0.3;
 }
 
-/* line 36, ../jkanban.scss */
 .kanban-board.is-moving.gu-mirror {
   transform: rotate(3deg);
 }
 
-/* line 40, ../jkanban.scss */
 .kanban-board.is-moving.gu-mirror .kanban-drag {
   overflow: hidden;
   padding-right: 50px;
 }
 
-/* line 46, ../jkanban.scss */
-.kanban-board:after {
-  clear: both;
-  display: block;
-  content: "";
-}
-/* line 51, ../jkanban.scss */
 .kanban-board header {
   font-size: 16px;
   padding: 15px;
-  line-height: 1;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
-/* line 56, ../jkanban.scss */
+
 .kanban-board header .kanban-title-board {
   font-weight: 700;
   margin: 0;
   padding: 0;
   display: inline;
 }
-/* line 62, ../jkanban.scss */
+
 .kanban-board header .kanban-title-button {
   float: right;
 }
-/* line 66, ../jkanban.scss */
+
 .kanban-board .kanban-drag {
   min-height: 200px;
-  padding: 20px 0;
+  padding: 20px;
 }
 
-/* line 72, ../jkanban.scss */
+.kanban-board:after {
+  clear: both;
+  display: block;
+  content: "";
+}
+
 .kanban-item {
   background: #fff;
   padding: 15px;
   margin-bottom: 20px;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
-/* line 80, ../jkanban.scss */
-.kanban-item :hover {
+
+.kanban-item:hover {
   cursor: move;
 }
-/* line 83, ../jkanban.scss */
-.kanban-item :last-child {
+
+.kanban-item:last-child {
   margin: 0;
 }
-/* line 86, ../jkanban.scss */
+
 .kanban-item.is-moving.gu-mirror {
   transform: rotate(3deg);
   height: auto !important;
 }
 
-/* line 93, ../jkanban.scss */
+/* Dragula CSS  */
 .gu-mirror {
   position: fixed !important;
   margin: 0 !important;
   z-index: 9999 !important;
 }
 
-/* line 99, ../jkanban.scss */
 .gu-hide {
   display: none !important;
 }
 
-/* line 103, ../jkanban.scss */
 .gu-unselectable {
   -webkit-user-select: none !important;
   -moz-user-select: none !important;
@@ -112,58 +99,51 @@
   user-select: none !important;
 }
 
-/* line 110, ../jkanban.scss */
 .gu-transit {
   opacity: 0.2 !important;
   transform: rotate(0deg) !important;
 }
 
-/* line 115, ../jkanban.scss */
 .drag_handler {
-  background: #fff;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  position: relative;
-  float: left;
-  top: -3px;
-  margin-right: 4px;
+    background: #fff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    float: left;
+    top: -3px;
+    margin-right: 4px;
 }
 
-/* line 126, ../jkanban.scss */
 .drag_handler:hover {
   cursor: move;
 }
 
-/* line 130, ../jkanban.scss */
 .drag_handler_icon {
-  position: relative;
-  display: block;
-  background: #000;
-  width: 24px;
-  height: 2px;
-  top: 12px;
-  transition: .5s ease-in-out;
+    position: relative;
+    display: block;
+    background: #000;
+    width: 24px;
+    height: 2px;
+    top: 12px;
+    transition: .5s ease-in-out;
 }
 
-/* line 140, ../jkanban.scss */
 .drag_handler_icon:before,
 .drag_handler_icon:after {
-  background: #000;
-  content: '';
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transition: .5s ease-in-out;
+    background: #000;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: .5s ease-in-out;
 }
 
-/* line 151, ../jkanban.scss */
-.drag_handler_icon:before {
-  top: 6px;
+ .drag_handler_icon:before {
+    top: 6px;
 }
 
-/* line 155, ../jkanban.scss */
 .drag_handler_icon:after {
-  bottom: 6px;
+    bottom: 6px;
 }
