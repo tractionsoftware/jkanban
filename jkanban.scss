@@ -6,6 +6,15 @@ $border_color: #ccc;
   box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1);
 }
 
+@mixin fontawesome_basic {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 // -----
 
 .kanban-container {
@@ -71,7 +80,9 @@ $border_color: #ccc;
 
 .kanban-item {
   background: #fff;
-  padding: 15px;
+  // Put the HD, BD, and FT elements in the item
+  // and set the paddings to each of the elements.
+  // padding: 15px;
   margin-bottom: 20px;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   border: 1px solid $border_color;
@@ -86,6 +97,91 @@ $border_color: #ccc;
   &.is-moving.gu-mirror {
     transform: rotate(3deg);
     height: auto !important;
+  }
+  .hd {
+    padding: 8px;
+    .title {
+      font-weight: bold;
+      display: inline-block;
+      width: calc(100% - 36px);
+    }
+    .author {
+      display: inline-block;
+      width: 20px;
+      vertical-align: top;
+      img {
+        vertical-align: middle;
+        max-width: 20px;
+        max-height: 20px;
+        border-radius: 50%;
+      }
+    }
+  }
+  .bd {
+    padding: 0 8px 8px 8px;
+    .task-details {
+      display: flex;
+      margin: 8px 0;
+      .priority {
+        height: 18px;
+        &.p1 {
+          background-color: #dea29e;
+        }
+        &.p2 {
+          background-color: #f0c7a0;
+        }
+        &.p3 {
+          background-color: #f0f08a;
+          color: #aaa;
+        }
+        &.p4 {
+          background-color: #ddd;
+        }
+      }
+      .assigned {
+        margin: 0 2px;
+        img {
+          max-height: 18px;
+          border-radius: 50%;
+          display: inherit;
+        }
+      }
+    }
+  }
+  .ft {
+    padding: 8px;
+    background-color: #f0f0f0;
+    color: #999;
+    text-align: right;
+    .actions {
+      & > * {
+        vertical-align: middle;
+      }
+      & > span {
+        margin-right: 4px;
+      }
+      i {
+        @include fontawesome_basic;
+      }
+      .comments {
+        i {
+          transform: scale(-1, 1);
+        }
+        i:before {
+          content: "\f075";
+        }
+      }
+      .tasks {
+        i:before {
+          content: "\f046";
+        }
+      }
+      .events {
+        i:before {
+          content: "\f073";
+        }
+      }
+    }
   }
 }
 
