@@ -145,6 +145,11 @@ $border_color: #ccc;
           border-radius: 50%;
           display: inherit;
         }
+      } // .assigned
+    } // .task-details
+    .tags {
+      &> span {
+        margin-right: 2px;
       }
     }
   }

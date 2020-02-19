@@ -154,21 +154,25 @@
   display: inherit;
 }
 /* line 151, ../jkanban.scss */
+.kanban-item .bd .tags > span {
+  margin-right: 2px;
+}
+/* line 156, ../jkanban.scss */
 .kanban-item .ft {
   padding: 8px;
   background-color: #f0f0f0;
   color: #999;
   text-align: right;
 }
-/* line 157, ../jkanban.scss */
+/* line 162, ../jkanban.scss */
 .kanban-item .ft .actions > * {
   vertical-align: middle;
 }
-/* line 160, ../jkanban.scss */
+/* line 165, ../jkanban.scss */
 .kanban-item .ft .actions > span {
   margin-right: 4px;
 }
-/* line 163, ../jkanban.scss */
+/* line 168, ../jkanban.scss */
 .kanban-item .ft .actions i {
   font-family: FontAwesome;
   font-weight: normal;
@@ -177,36 +181,36 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* line 167, ../jkanban.scss */
+/* line 172, ../jkanban.scss */
 .kanban-item .ft .actions .comments i {
   transform: scale(-1, 1);
 }
-/* line 170, ../jkanban.scss */
+/* line 175, ../jkanban.scss */
 .kanban-item .ft .actions .comments i:before {
   content: "\f075";
 }
-/* line 175, ../jkanban.scss */
+/* line 180, ../jkanban.scss */
 .kanban-item .ft .actions .tasks i:before {
   content: "\f046";
 }
-/* line 180, ../jkanban.scss */
+/* line 185, ../jkanban.scss */
 .kanban-item .ft .actions .events i:before {
   content: "\f073";
 }
 
-/* line 189, ../jkanban.scss */
+/* line 194, ../jkanban.scss */
 .gu-mirror {
   position: fixed !important;
   margin: 0 !important;
   z-index: 9999 !important;
 }
 
-/* line 195, ../jkanban.scss */
+/* line 200, ../jkanban.scss */
 .gu-hide {
   display: none !important;
 }
 
-/* line 199, ../jkanban.scss */
+/* line 204, ../jkanban.scss */
 .gu-unselectable {
   -webkit-user-select: none !important;
   -moz-user-select: none !important;
@@ -214,13 +218,13 @@
   user-select: none !important;
 }
 
-/* line 206, ../jkanban.scss */
+/* line 211, ../jkanban.scss */
 .gu-transit {
   opacity: 0.2 !important;
   transform: rotate(0deg) !important;
 }
 
-/* line 211, ../jkanban.scss */
+/* line 216, ../jkanban.scss */
 .drag_handler {
   background: #fff;
   border-radius: 50%;
@@ -232,12 +236,12 @@
   margin-right: 4px;
 }
 
-/* line 222, ../jkanban.scss */
+/* line 227, ../jkanban.scss */
 .drag_handler:hover {
   cursor: move;
 }
 
-/* line 226, ../jkanban.scss */
+/* line 231, ../jkanban.scss */
 .drag_handler_icon {
   position: relative;
   display: block;
@@ -248,7 +252,7 @@
   transition: .5s ease-in-out;
 }
 
-/* line 236, ../jkanban.scss */
+/* line 241, ../jkanban.scss */
 .drag_handler_icon:before,
 .drag_handler_icon:after {
   background: #000;
@@ -260,12 +264,12 @@
   transition: .5s ease-in-out;
 }
 
-/* line 247, ../jkanban.scss */
+/* line 252, ../jkanban.scss */
 .drag_handler_icon:before {
   top: 6px;
 }
 
-/* line 251, ../jkanban.scss */
+/* line 256, ../jkanban.scss */
 .drag_handler_icon:after {
   bottom: 6px;
 }
