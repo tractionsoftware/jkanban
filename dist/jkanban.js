@@ -265,19 +265,28 @@ var dragula = require("dragula");
         var boardNode = document.createElement("div");
         boardNode.dataset.id = board.id;
         boardNode.dataset.order = self.container.childNodes.length + 1;
-        boardNode.classList.add("kanban-board");
-        //set style
-        if (self.options.responsivePercentage) {
-          boardNode.style.width = boardWidth + "%";
-        } else {
-          boardNode.style.width = boardWidth;
-        }
-        boardNode.style.marginLeft = self.options.gutter;
-        boardNode.style.marginRight = self.options.gutter;
+          // set classes
+          if (board.class !== "" && board.class !== undefined)
+            var boardClasses = board.class.split(",");
+          else boardClasses = [];
+          boardNode.classList.add("kanban-board");
+          boardClasses.map(function(value) {
+            boardNode.classList.add(value);
+          });
+          // set board names (= phase names)
+          boardNode.dataset.phasename = board.title;
+          //set style
+          if (self.options.responsivePercentage) {
+            boardNode.style.width = boardWidth + "%";
+          } else {
+            boardNode.style.width = boardWidth;
+          }
+          boardNode.style.marginLeft = self.options.gutter;
+          boardNode.style.marginRight = self.options.gutter;
         // header board
         var headerBoard = document.createElement("header");
-        if (board.class !== "" && board.class !== undefined)
-          var allClasses = board.class.split(",");
+        if (board.headerClass !== "" && board.headerClass !== undefined)
+          var allClasses = board.headerClass.split(",");
         else allClasses = [];
         headerBoard.classList.add("kanban-board-header");
         allClasses.map(function(value) {
