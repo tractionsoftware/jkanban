@@ -51,7 +51,24 @@ $border_color: #ccc;
   padding-right: 50px;
 }
 
+.kanban-board:first-child {
+  margin-left: 0 !important;
+}
+
+.kanban-board:last-child {
+  margin-right: 0 !important;
+}
+
+// If in a narrow screen
+@media screen and (max-width: 640px) {
+  .kanban-board {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
 .kanban-board {
+  &:not(:last-child) { margin-right: 8px; }
   &:after {
     clear: both;
     display: block;
@@ -59,14 +76,24 @@ $border_color: #ccc;
   }
   header {
     font-size: 16px;
-    padding: 15px;
+    //padding: 15px;
+    padding: .58333em 1em;
     line-height: 1;
     @include shadow;
     .kanban-title-board {
       font-weight: 700;
       margin: 0;
       padding: 0;
-      display: inline;
+      //display: inline;
+      display: flex;
+      justify-content: space-between;
+      .title-desc {
+        padding: 3px 0; // Same padding as the badge
+        white-space: nowrap;
+      }
+      .num-items {
+        opacity: 0.8;
+      }
     }
     .kanban-title-button {
       float: right;
@@ -74,7 +101,7 @@ $border_color: #ccc;
   }
   .kanban-drag {
     min-height: 200px;
-    padding: 20px 0;
+    padding: 10px 0;
   }
 }
 
@@ -83,15 +110,16 @@ $border_color: #ccc;
   // Put the HD, BD, and FT elements in the item
   // and set the paddings to each of the elements.
   // padding: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   border: 1px solid $border_color;
   border-radius: 3px;
+  overflow: hidden;
   @include shadow;
   :hover {
     cursor: move;
   }
-  :last-child {
+  &:last-child {
     margin: 0;
   }
   &.is-moving.gu-mirror {
@@ -99,95 +127,124 @@ $border_color: #ccc;
     height: auto !important;
   }
   .hd {
-    padding: 8px;
-    .title {
-      font-weight: bold;
-      display: inline-block;
-      width: calc(100% - 36px);
-    }
-    .author {
-      display: inline-block;
-      width: 20px;
-      vertical-align: top;
+    .eye-catch {
+      max-height: 200px;
+      overflow: hidden;
       img {
-        vertical-align: middle;
-        max-width: 20px;
-        max-height: 20px;
-        border-radius: 50%;
+        width: 100%;
+        height: auto;
+      }
+    }
+    .hd-container {
+      padding: 8px;
+      .title {
+        font-weight: bold;
+        display: inline-block;
+        width: calc(100% - 36px);
+      }
+      .author {
+        display: inline-block;
+        width: 20px;
+        vertical-align: top;
+        img {
+          vertical-align: middle;
+          max-width: 20px;
+          max-height: 20px;
+          border-radius: 50%;
+        }
       }
     }
   }
   .bd {
-    padding: 0 8px 8px 8px;
-    .task-details {
-      display: flex;
-      margin: 8px 0;
-      .priority {
-        height: 18px;
-        &.p1 {
-          background-color: #dea29e;
+    .bd-container {
+      padding: 0 8px 8px 8px;
+      .task-details {
+        display: flex;
+        margin: 0 0 8px 0;
+        .priority {
+          height: 18px;
+          &.p1 {
+            background-color: #dea29e;
+          }
+          &.p2 {
+            background-color: #f0c7a0;
+          }
+          &.p3 {
+            background-color: #f0f08a;
+            color: #aaa;
+          }
+          &.p4 {
+            background-color: #ddd;
+          }
         }
-        &.p2 {
-          background-color: #f0c7a0;
-        }
-        &.p3 {
-          background-color: #f0f08a;
-          color: #aaa;
-        }
-        &.p4 {
-          background-color: #ddd;
+        .assigned {
+          margin: 0 2px;
+          img {
+            max-height: 18px;
+            border-radius: 50%;
+            display: inherit;
+          }
+        } // .assigned
+      } // .task-details
+      .tags {
+        margin: 8px 0 0 0;
+        &> span {
+          margin-right: 2px;
+          display: inline-block;
+          i {
+            @include fontawesome_basic;
+            margin-right: 4px;
+            &:before {
+              content: "\f02b";
+              speak: none;
+              display: inline-block;
+              opacity: 0.7;
+            }
+          }
         }
       }
-      .assigned {
-        margin: 0 2px;
-        img {
-          max-height: 18px;
-          border-radius: 50%;
-          display: inherit;
-        }
-      } // .assigned
-    } // .task-details
-    .tags {
-      &> span {
-        margin-right: 2px;
-      }
-    }
+    } // .bd-container
   }
   .ft {
-    padding: 8px;
-    background-color: #f0f0f0;
-    color: #999;
-    text-align: right;
-    .actions {
-      & > * {
-        vertical-align: middle;
-      }
-      & > span {
-        margin-right: 4px;
-      }
-      i {
-        @include fontawesome_basic;
-      }
-      .comments {
+    .ft-container {
+      padding: 8px;
+      background-color: #f0f0f0;
+      color: #999;
+      text-align: right;
+      .actions {
+        & > * {
+          vertical-align: middle;
+        }
+        & > span {
+          margin-right: 4px;
+        }
         i {
-          transform: scale(-1, 1);
+          @include fontawesome_basic;
         }
-        i:before {
-          content: "\f075";
+        .comments {
+          i {
+            transform: scale(-1, 1);
+          }
+          i:before {
+            content: "\f075";
+            speak: none;
+          }
+        }
+        .tasks {
+          i:before {
+            content: "\f046";
+            speak: none;
+          }
+        }
+        .events {
+          i:before {
+            content: "\f073";
+            speak: none;
+          }
         }
       }
-      .tasks {
-        i:before {
-          content: "\f046";
-        }
-      }
-      .events {
-        i:before {
-          content: "\f073";
-        }
-      }
-    }
-  }
+    } // .ft-container
+  } // .ft
 }
 
 // Dragula CSS

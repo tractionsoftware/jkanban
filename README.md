@@ -67,6 +67,7 @@ Now take a look to the `boards` object
         "class" : "class1,class2,...",        // css classes to add to the div "kanban-board" element
         "headerClass" : "class1,class2,...",  // css classes to add to the header "kanban-board-header" element
         "bodyClass" : "class1,class2,...",    // css classes to add to the main "kanban-drag" element
+        "ehtClassName" : "tag-5",             // special data name whose value equals to the corresponding class name by the entry header tags plug-in
         "dragTo": ['another-board-id',...],   // array of ids of boards where items can be dropped (default: [])
         "item"  : [                           // item of this board
             {
