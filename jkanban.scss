@@ -159,8 +159,8 @@ $border_color: #ccc;
     .bd-container {
       padding: 0 8px 8px 8px;
       .task-details {
-        display: flex;
         margin: 0 0 8px 0;
+        display: flex;
         .priority {
           height: 18px;
           &.p1 {
@@ -190,7 +190,10 @@ $border_color: #ccc;
         margin: 8px 0 0 0;
         &> span {
           margin-right: 2px;
+          margin-bottom: 2px;
           display: inline-block;
+          font-weight: normal;
+          line-height: 1.2;
           i {
             @include fontawesome_basic;
             margin-right: 4px;

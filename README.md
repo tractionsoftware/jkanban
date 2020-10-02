@@ -1,16 +1,15 @@
-<img src="https://www.riccardotartaglia.it/jkanban/jkanban.png" width="80" style="position:relative; top:30px" />
-
 # jKanban
 
 > Javascript plugin for Kanban boards
-
-## [SUPPORT THIS PLUGIN!](https://donorbox.org/jkanban)
 
 jKanban allow you to create and manage Kanban Board in your project!
 
 Please try out the live [demo][1]!
 
 [1]: http://www.riccardotartaglia.it/jkanban/
+
+## GET SUPPORT / REQUIRE CUSTOM FEATURE
+[![jKanban](https://www.riccardotartaglia.it/blog/wp-content/uploads/2020/08/jKanban-banner.png)](https://xscode.com/riktar/jkanban)
 
 ## Install
 Clone the repo and use the javascript and the css files in the `dist` folder.
@@ -64,10 +63,7 @@ Now take a look to the `boards` object
     {
         "id"    : "board-id-1",               // id of the board
         "title" : "Board Title",              // title of the board
-        "class" : "class1,class2,...",        // css classes to add to the div "kanban-board" element
-        "headerClass" : "class1,class2,...",  // css classes to add to the header "kanban-board-header" element
-        "bodyClass" : "class1,class2,...",    // css classes to add to the main "kanban-drag" element
-        "ehtClassName" : "tag-5",             // special data name whose value equals to the corresponding class name by the entry header tags plug-in
+        "class" : "class1,class2,...",        // css classes to add at the title
         "dragTo": ['another-board-id',...],   // array of ids of boards where items can be dropped (default: [])
         "item"  : [                           // item of this board
             {
@@ -152,3 +148,4 @@ Let's hear them! (The nice ones please!)
 
 ### Me?
 In case you're interested I'm [@riktarweb](http://twitter.com/riktarweb)
+
